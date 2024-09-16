@@ -270,3 +270,5 @@ uint8_t keyball_get_cpi(void);
 /// In addition, if you do not upload SROM, the maximum value will be limited
 /// to 34 (3500CPI).
 void keyball_set_cpi(uint8_t cpi);
+
+void keyball_oled_render_cat(void);
