@@ -68,10 +68,10 @@ void oledkit_render_info_user(void) {
     // keyball_oled_render_ballinfo();
     // keyball_oled_render_layerinfo();
 
-    // oled_write_ln_P(PSTR(" "), false);
-    // oled_write_ln_P(PSTR(" "), false);
-    // oled_write_ln_P(PSTR(" "), false);
-    // oled_write_ln_P(PSTR(" "), false);
+    oled_write_ln_P(PSTR(" "), false);
+    oled_write_ln_P(PSTR(" "), false);
+    oled_write_ln_P(PSTR(" "), false);
+    oled_write_ln_P(PSTR(" "), false);
     oled_write_ln_P(PSTR(" "), false);
     keyball_oled_render_cat();
 }
