@@ -61,23 +61,25 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 
 #ifdef OLED_ENABLE
 
-#    include "lib/oledkit/oledkit.h"
+#include "lib/oledkit/oledkit.h"
+#include "custom_oled.c"
+
+// 画像を両側回転させる
+oled_rotation_t oled_init_user(oled_rotation_t rotation) {
+    return OLED_ROTATION_270;
+    // 片方ずつ定義してもよい
+    // return is_keyboard_master() ? OLED_ROTATION_180 : OLED_ROTATION_270;
+}
 
 void oledkit_render_info_user(void) {
-    // keyball_oled_render_keyinfo();
-    // keyball_oled_render_ballinfo();
-    // keyball_oled_render_layerinfo();
-
-    oled_write_ln_P(PSTR(" "), false);
-    oled_write_ln_P(PSTR(" "), false);
-    oled_write_ln_P(PSTR(" "), false);
-    oled_write_ln_P(PSTR(" "), false);
-    oled_write_ln_P(PSTR(" "), false);
-    keyball_oled_render_cat();
+  // keyball_oled_render_keyinfo();
+  // keyball_oled_render_ballinfo();
+  // keyball_oled_render_layerinfo();
+  keyball_oled_render_mymain();
 }
+
+void oledkit_render_logo_user(void) {
+  keyball_oled_render_mysub();
+}
+
 #endif
-
-// 猫を表示する側のOLEDを縦表示にする
-oled_rotation_t oled_init_user(oled_rotation_t rotation) {
-    return !is_keyboard_master() ? OLED_ROTATION_180 : OLED_ROTATION_270;
-}
